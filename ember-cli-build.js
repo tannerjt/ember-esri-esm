@@ -4,6 +4,17 @@ const EmberApp = require('ember-cli/lib/broccoli/ember-app');
 
 module.exports = function (defaults) {
   let app = new EmberApp(defaults, {
+    autoImport: {
+      webpack: {
+        // needed to add this to get around build errors while
+        // processing @arcgis/core code included in @esri/hub-components
+        // I suspect this is not a robust solution
+        node: {
+          fs: 'empty',
+          path: true,
+        },
+      },
+    },
     // Add options here
   });
 

@@ -16,7 +16,12 @@
   </head>
   <body>
     {{content-for "body"}}
-
+    <script>
+      // needed so that stencil components can work w/ ember-esri-loader
+      if (typeof customElements !== 'undefined') {
+        customElements.efineday = customElements.define;
+      }
+    </script>
     <script src="{{rootURL}}assets/vendor.js"></script>
     <script src="{{rootURL}}assets/esri-esm.js"></script>
 

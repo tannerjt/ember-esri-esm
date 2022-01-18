@@ -14,6 +14,9 @@ module.exports = function (defaults) {
           path: true,
         },
       },
+      // this is needed for ember-esri-loader
+      // see: https://github.com/Esri/ember-esri-loader#using-with-ember-auto-import
+      exclude: ['esri-loader'],
     },
     // Add options here
   });

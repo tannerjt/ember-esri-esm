@@ -3,10 +3,13 @@
 {{!-- The following component displays Ember's default welcome message. --}}
 {{!-- <WelcomePage /> --}}
 {{!-- Feel free to remove this! --}}
+<h3>From <code>hub-components</code></h3>
 <arcgis-hub-map
-  style="height: 100vh; width: 100%"
+  class="map"
   zoom="11"
   center="-118.1079,34.1643"
   basemap="hybrid"
 />
+<h3>From <code>esri-loader</code></h3>
+<Map />
 {{outlet}}

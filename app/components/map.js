@@ -1,10 +1,12 @@
 import Component from '@glimmer/component';
-import { action } from '@ember/object';
-import Map from '@arcgis/core/Map';
-import MapView from '@arcgis/core/views/MapView';
+import esriLoader from 'esri-loader';
 
 export default class MapComponent extends Component {
-  renderMap() {
+  async renderMap() {
+    const [Map, MapView] = await esriLoader.loadModules([
+      'esri/Map',
+      'esri/views/MapView',
+    ]);
     const map = new Map({
       basemap: 'hybrid',
     });
@@ -12,7 +14,7 @@ export default class MapComponent extends Component {
       map: map,
       center: [-118, 34],
       zoom: 13,
-      container: 'map',
+      container: 'esri-loader-map',
     });
     console.log('View', view);
   }
